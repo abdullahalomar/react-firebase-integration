@@ -4,10 +4,10 @@ import './Header.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Stack } from 'react-bootstrap';
 import useFirebase from '../../hooks/useFirebase';
-import { Button } from 'bootstrap';
+
 
 const Header = () => {
-    const { user } = useFirebase();
+    const { user, handleSignOut } = useFirebase();
     return (
         <div>
             <nav>
@@ -17,10 +17,11 @@ const Header = () => {
                 <Link to='/orders'>Orders</Link>
                 <Link to='/reviews'>Reviews</Link>
                 <Link to='/register'>Register</Link>
+                    <span>{user.displayName && user.displayName }</span>   
                     {
-                        user.uid
+                        user?.uid
                             ? 
-                        <Button>Signout</Button> 
+                            <button onClick={handleSignOut}>Sign Out</button>
                             :
                         <Link to='/login'>Login</Link>
                     }
