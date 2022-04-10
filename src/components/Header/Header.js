@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import './Header.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Stack } from 'react-bootstrap';
+import useFirebase from '../../hooks/useFirebase';
+import { Button } from 'bootstrap';
 
 const Header = () => {
+    const { user } = useFirebase();
     return (
         <div>
             <nav>
@@ -14,7 +17,13 @@ const Header = () => {
                 <Link to='/orders'>Orders</Link>
                 <Link to='/reviews'>Reviews</Link>
                 <Link to='/register'>Register</Link>
-                <Link to='/login'>Login</Link>
+                    {
+                        user.uid
+                            ? 
+                        <Button>Signout</Button> 
+                            :
+                        <Link to='/login'>Login</Link>
+                    }
             </Stack>
            </nav>
         </div>

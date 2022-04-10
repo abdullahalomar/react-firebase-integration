@@ -7,7 +7,7 @@ const Register = () => {
     return (
         <div>
             <div className="registration w-50 mx-auto mt-5">
-            <h3 className='text-primary'>Please Register Now</h3>
+            <h3 className='text-primary'>Please Register</h3>
                 <Form>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Name</Form.Label>
@@ -29,7 +29,7 @@ const Register = () => {
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group>
   <Button variant="primary" type="submit">
-    Submit
+    Register
   </Button>
 </Form>
             </div>

@@ -2,8 +2,10 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import useFirebase from '../../hooks/useFirebase';
 
 const Login = () => {
+  const {signInWithGoogle} = useFirebase();
     return (
         <div>
               <div className="registration w-50 mx-auto mt-5">
@@ -25,10 +27,10 @@ const Login = () => {
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group>
   <Button variant="primary" type="submit">
-    Submit
+    Log In
     </Button>
-    <Button className='ms-4' variant="primary" type="submit">
-    Google Signin
+    <Button onClick={signInWithGoogle} className='ms-4' variant="primary" type="submit">
+    SignIn With Google
   </Button>
 </Form>
             </div>
